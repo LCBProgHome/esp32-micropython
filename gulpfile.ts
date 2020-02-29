@@ -12,7 +12,7 @@ const CorePath = path.join(__dirname, 'sys');
 
 const PanelPath = path.join(__dirname, 'panel', 'dist');
 
-const EduBlocksPath = path.join(__dirname, '..', 'edublocks-micropython', 'web');
+const EduBlocksPath = path.join(__dirname, 'edublocks-micropython', 'web');
 
 const dest = path.join(__dirname, 'sys-fs');
 
@@ -54,7 +54,7 @@ gulp.task('bundle-edublocks', () => {
     return pump([]);
   }
 
-  const assets: string[] = JSON.parse(fs.readFileSync(assetsJsonPath, 'utf-8'));
+  let assets:string[] = JSON.parse(fs.readFileSync(assetsJsonPath, 'utf-8'));
 
   const assetPaths = assets.map((asset) => path.join(EduBlocksPath, asset));
 
